@@ -32,4 +32,21 @@ public enum Planet {
     double surfaceWeight(double otherMass) {
         return otherMass * surfaceGravity();
     }
+
+    public static void main(String[] args) {
+        args = new String[1];
+        args[0] = "175";
+        if (args.length != 1) {
+            System.err.println("Usage: java Planet <earth_weight>");
+            System.exit(-1);
+        }
+
+        double earthWeight = Double.parseDouble(args[0]);
+        double mass = earthWeight/EARTH.surfaceGravity();
+
+        System.out.println("your weight on earth is?");
+        for (Planet p : Planet.values()) {
+            System.out.println(p + ": " + p.surfaceWeight(mass));
+        }
+    }
 }
